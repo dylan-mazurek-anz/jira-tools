@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confluence Issue Button</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jira-issue-button">
+            {
+            "button_text": "New Task",
+            "project_id": 1,
+            "issue_type": 2,
+            "systems_impacted": 3,
+            "components": [ 4 ],
+            "product_owner": "test_product_owner",
+            "initiative_lead": "test_initiative_lead",
+            "epic_link": "key:AR-1",
+            "home_value_stream": 5,
+            "priority": 6,
+            "description_template": "ticket_template_base"
+            }
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        let jiraBaseUrl = 'https://jira.com/secure/CreateIssueDetails!init.jspa';
+        var buttonCreator = new ConfluenceButtonCreator(jiraBaseUrl);
+        buttonCreator.addTemplate('ticket_template_base', 'This is a ticket template');
+
+        buttonCreator.setMode("development");
+        buttonCreator.init();
+    </script>
+</body>
+
+</html>

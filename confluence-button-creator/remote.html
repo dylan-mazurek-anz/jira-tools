@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confluence Issue Button</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jira-issue-button">
+            {
+            "button_text": "New Task",
+            "project_id": 1,
+            "issue_type": 2,
+            "systems_impacted": 3,
+            "components": [ 4 ],
+            "product_owner": "test_product_owner",
+            "initiative_lead": "test_initiative_lead",
+            "epic_link": "key:AR-1",
+            "home_value_stream": 5,
+            "priority": 6,
+            "description_template": "ticket_template_base"
+            }
+        </div>
+    </div>
+    <!-- --- DO NOT EDIT --- -->
+    <script type="text/javascript">
+        var scriptUrl = "https://raw.githubusercontent.com/dylan-mazurek-anz/jira-tools/refs/heads/main/confluence-button-creator/script.js";
+        fetch(scriptUrl,
+            { method: 'GET', mode: 'no-cors', cache: 'no-store' })
+            .then(function (t) {
+                return t.text()
+            })
+            .then(function (t) {
+                var e = document.createElement("script");
+                e.text = t;
+                document.getElementsByTagName("head")[0].appendChild(e);
+            })
+            .catch(function (t) {
+                console.log("fetch error", t)
+            });
+    </script>
+    <!-- --- DO NOT EDIT --- -->
+
+    <!-- --- CUSTOM CODE BELOW --- -->
+    <script type="text/javascript">
+        function initConfluenceButtonCreator() {
+            let jiraBaseUrl = 'https://jira.com/secure/CreateIssueDetails!init.jspa';
+            var buttonCreator = new ConfluenceButtonCreator(jiraBaseUrl);
+            buttonCreator.addTemplate('ticket_template_base', 'This is a ticket template');
+            buttonCreator.init();
+        }
+    </script>
+</body>
+
+</html>
